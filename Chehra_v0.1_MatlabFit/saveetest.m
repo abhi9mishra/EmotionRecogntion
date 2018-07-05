@@ -1,0 +1,10 @@
+load('nnweights.mat');
+%testvid=csvread('extract.csv');
+hiddenLayerSize = 120;
+net = patternnet(hiddenLayerSize);
+inputs=csvread('C:\Users\Abhinav Mishra\Desktop\projectdetail\project\MLP_NN\saveprise\input.csv');
+targets=csvread('C:\Users\Abhinav Mishra\Desktop\projectdetail\project\MLP_NN\saveprise\target.csv');
+net = configure(net,inputs',targets');
+net = setwb(net,a);
+outputs=net(inputs');
+plotconfusion(outputs,targets');
